@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0680bb1e-2610-484f-9b22-de91a2f4149b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnityProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnityProject/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Rabit/Invulnerable.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Rabit/Invulnerable.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/DeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/DeathZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rabit/HeroRabit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rabit/HeroRabit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Rabit/Die.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Rabit/Die.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene1.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -234,7 +231,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14286000" />
+    <option name="totallyTimeSpent" value="14552000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
