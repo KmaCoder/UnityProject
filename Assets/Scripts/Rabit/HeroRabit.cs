@@ -7,17 +7,24 @@ public class HeroRabit : MonoBehaviour
     public float Speed = 5;
     public float JumpSpeed = 5;
     public float MaxJumpTime = 2;
+    public float InvulnerableTime = 3;
 
     private Rigidbody2D _myBody;
     private SpriteRenderer _sprite;
     private Animator _animator;
     private int _layerId;
 
+    private bool _canMove = true;
     private bool _isGrounded;
     private float _jumpTimeDelta;
 
     private Vector3 _startPosition;
     private Quaternion _startRotation;
+    private Vector3 _initialScale;
+    private Transform _initialParent;
+
+    public float InvulnerableTimeLeft { get; private set; }
+    public bool IsScaled { get; private set; }
 
     void Start()
     {
@@ -27,13 +34,31 @@ public class HeroRabit : MonoBehaviour
         _layerId = 1 << LayerMask.NameToLayer("Ground");
         _startPosition = transform.position;
         _startRotation = transform.rotation;
+        _initialScale = transform.localScale;
+        _initialParent = transform.parent;
     }
 
     void FixedUpdate()
     {
         GroundedCheck();
-        MovementsController();
-        JumpsController();
+        if (_canMove)
+        {
+            MovementsController();
+            JumpsController();
+        }
+    }
+
+    void Update()
+    {
+        if (InvulnerableTimeLeft > 0)
+        {
+            InvulnerableTimeLeft -= Time.deltaTime;
+            _animator.SetBool("invulnerable", true);
+        }
+        else
+        {
+            _animator.SetBool("invulnerable", false);
+        }
     }
 
     void MovementsController()
@@ -82,19 +107,69 @@ public class HeroRabit : MonoBehaviour
             transform.position + Vector3.down * 0.1f, _layerId);
         _isGrounded = hit;
         _animator.SetBool("jump", !_isGrounded);
+
+        if (hit.transform != null && hit.transform.GetComponent<MovingPlatform>() != null)
+            SetNewParent(transform, hit.transform);
+        else
+            SetNewParent(transform, _initialParent);
     }
 
     public void Die()
     {
+        _canMove = false;
+        _myBody.velocity = Vector2.zero;
         _animator.SetTrigger("die");
     }
 
     public void Revive()
     {
+        _canMove = true;
+        InvulnerableTimeLeft = 0;
+        MakeSmaller();
         transform.position = _startPosition;
         transform.rotation = _startRotation;
         _myBody.velocity = Vector2.zero;
         _myBody.angularVelocity = 0;
         _animator.SetTrigger("reset");
+    }
+
+    public void MakeBigger()
+    {
+        if (IsScaled)
+            return;
+        transform.localScale = _initialScale * 1.25f;
+        IsScaled = true;
+    }
+
+    public void MakeSmaller()
+    {
+        if (!IsScaled || InvulnerableTimeLeft > 0)
+            return;
+        transform.localScale = _initialScale;
+        IsScaled = false;
+        InvulnerableTimeLeft = InvulnerableTime;
+    }
+
+    public void OnDieAnimationStart()
+    {
+        if (!_isGrounded)
+        {
+            Revive();
+        }
+    }
+
+    public void OnDieAnimationEnd()
+    {
+        Revive();
+    }
+
+    static void SetNewParent(Transform obj, Transform newParent)
+    {
+        if (obj.transform.parent != newParent)
+        {
+            Vector3 pos = obj.transform.position;
+            obj.transform.parent = newParent;
+            obj.transform.position = pos;
+        }
     }
 }

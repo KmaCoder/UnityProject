@@ -13,10 +13,19 @@
         </e>
       </e>
       <e p="Assets\Scripts" t="Include">
+        <e p="Collectable" t="Include">
+          <e p="Bomb.cs" t="Include" />
+          <e p="Coin.cs" t="Include" />
+          <e p="Collectable.cs" t="Include" />
+          <e p="Crystal.cs" t="Include" />
+          <e p="Fruit.cs" t="Include" />
+          <e p="Mushroom.cs" t="Include" />
+        </e>
         <e p="Levels" t="Include">
           <e p="DeathZone.cs" t="Include" />
           <e p="LevelController.cs" t="Include" />
-          <e p="Parallax.cs" t="Include" />
+          <e p="MovingPlatform.cs" t="Include" />
+          <e p="ParallaxLayer.cs" t="Include" />
         </e>
         <e p="Rabit" t="Include">
           <e p="HeroFollow.cs" t="Include" />

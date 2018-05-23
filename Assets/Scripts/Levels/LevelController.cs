@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Current;
-    
+
     void Awake()
     {
         Current = this;
@@ -14,6 +14,5 @@ public class LevelController : MonoBehaviour
     public void OnRabitDeath(HeroRabit rabit)
     {
         rabit.Die();
-        rabit.Revive(); 
     }
 }
