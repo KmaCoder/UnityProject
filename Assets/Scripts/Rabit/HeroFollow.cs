@@ -6,11 +6,6 @@ public class HeroFollow : MonoBehaviour {
 
 	public HeroRabit rabit;
 
-	void Start()
-	{
-		
-	}
-
 	void Update () 
 	{
 		Vector3 new_camera_position = transform.position;

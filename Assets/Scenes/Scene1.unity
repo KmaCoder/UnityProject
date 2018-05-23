@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 107002704}
   - component: {fileID: 107002705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform-0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 181991874}
+  - component: {fileID: 181991875}
   - component: {fileID: 181991873}
   - component: {fileID: 181991872}
   - component: {fileID: 181991871}
@@ -255,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522c5a4008bcf804d8dfc9401b1e0e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 6
 --- !u!212 &181991873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,6 +311,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &181991875
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 181991869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8a24a2a232a49c45892203bac627be2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &533622590
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935394897}
   - component: {fileID: 935394896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174698345}
   - component: {fileID: 1174698346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform-0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417051036}
   - component: {fileID: 1417051035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform-0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620485136}
   - component: {fileID: 1620485137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform-0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1980155234}
   - component: {fileID: 1980155235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform-0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
