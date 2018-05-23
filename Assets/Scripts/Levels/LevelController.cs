@@ -15,4 +15,10 @@ public class LevelController : MonoBehaviour
     {
         rabit.Die();
     }
+
+    public void OnOutOfWorld(HeroRabit rabit)
+    {
+        rabit.Die();
+        rabit.Revive();
+    }
 }

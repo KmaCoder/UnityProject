@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        HeroRabit rabit = collider.GetComponent<HeroRabit>();
+        HeroRabit rabit = other.GetComponent<HeroRabit>();
         if (rabit != null)
         {
-            LevelController.Current.OnRabitDeath(rabit);
+            LevelController.Current.OnOutOfWorld(rabit);
         }
     }
 }

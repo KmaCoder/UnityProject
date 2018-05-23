@@ -7,7 +7,7 @@ public class HeroRabit : MonoBehaviour
     public float Speed = 5;
     public float JumpSpeed = 5;
     public float MaxJumpTime = 2;
-    public float InvulnerableTime = 3;
+    public float InvulnerableTime = 4;
 
     private Rigidbody2D _myBody;
     private SpriteRenderer _sprite;
@@ -124,8 +124,8 @@ public class HeroRabit : MonoBehaviour
     public void Revive()
     {
         _canMove = true;
-        InvulnerableTimeLeft = 0;
         MakeSmaller();
+        InvulnerableTimeLeft = 0;
         transform.position = _startPosition;
         transform.rotation = _startRotation;
         _myBody.velocity = Vector2.zero;
@@ -137,7 +137,7 @@ public class HeroRabit : MonoBehaviour
     {
         if (IsScaled)
             return;
-        transform.localScale = _initialScale * 1.25f;
+        transform.localScale = _initialScale * 1.5f;
         IsScaled = true;
     }
 
@@ -148,14 +148,6 @@ public class HeroRabit : MonoBehaviour
         transform.localScale = _initialScale;
         IsScaled = false;
         InvulnerableTimeLeft = InvulnerableTime;
-    }
-
-    public void OnDieAnimationStart()
-    {
-        if (!_isGrounded)
-        {
-            Revive();
-        }
     }
 
     public void OnDieAnimationEnd()
