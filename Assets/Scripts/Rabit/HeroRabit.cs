@@ -15,7 +15,6 @@ public class HeroRabit : MonoBehaviour
     private int _layerId;
 
     private bool _canMove = true;
-    private bool _dead;
     private bool _isGrounded;
     private float _jumpTimeDelta;
 
@@ -26,6 +25,7 @@ public class HeroRabit : MonoBehaviour
 
     public float InvulnerableTimeLeft { get; private set; }
     public bool IsScaled { get; private set; }
+    public bool IsDead { get; private set; }
 
     void Awake()
     {
@@ -122,10 +122,10 @@ public class HeroRabit : MonoBehaviour
 
     public void Die()
     {
-        if (_dead)
+        if (IsDead)
             return;
         _canMove = false;
-        _dead = true;
+        IsDead = true;
         _myBody.velocity = Vector2.zero;
         _animator.SetTrigger("die");
     }
@@ -133,7 +133,7 @@ public class HeroRabit : MonoBehaviour
     public void Revive()
     {
         _canMove = true;
-        _dead = false;
+        IsDead = false;
         MakeSmaller();
         InvulnerableTimeLeft = 0;
         transform.position = _startPosition;

@@ -34,7 +34,7 @@ namespace Enemies
             ResetVelocityX();
 
             Carrot newCarrot = Instantiate(CarrotGameObject.gameObject).GetComponent<Carrot>();
-            newCarrot.transform.position = transform.position;
+            newCarrot.transform.position = transform.position + Vector3.up*0.7f;
             newCarrot.Speed = CarrotSpeed;
             newCarrot.Direction = GetDirection() < 0;
             newCarrot.LifeTime = CarrotLifeTime;

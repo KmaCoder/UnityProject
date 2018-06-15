@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 212090499579104328}
   - component: {fileID: 50523845696593836}
   - component: {fileID: 61934518926396626}
-  - component: {fileID: 114152988558520526}
+  - component: {fileID: 114933336922186582}
   m_Layer: 0
   m_Name: Ork
   m_TagString: Untagged
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631953253338344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.89, y: -1.89, z: 0}
+  m_LocalPosition: {x: 20.27962, y: -1.8970726, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4979660790316706}
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: -0.09, y: 0.83}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -174,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.2}
+  m_Size: {x: 0.77, y: 1.43}
   m_EdgeRadius: 0
 --- !u!95 &95935945124124200
 Animator:
@@ -193,7 +193,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114152988558520526
+--- !u!114 &114933336922186582
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1800838819123216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d2553c3aa030f49a6b4c5104c6c92e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d069e66e0b7a7f4397b98d9efaee131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PointA: {fileID: 4014560056527446}

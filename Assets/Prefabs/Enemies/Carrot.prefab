@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4943994629862032}
   - component: {fileID: 212296680833616404}
-  - component: {fileID: 65077384402424138}
   - component: {fileID: 114785291421844156}
+  - component: {fileID: 61400304266183412}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -36,24 +36,37 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879683290007084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.5649488, y: 0.63597345, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65077384402424138
-BoxCollider:
+--- !u!61 &61400304266183412
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879683290007084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19965279, y: 0.021701485}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.36689812, y: 0.4685486}
+    oldSize: {x: 1.5, y: 0.69}
+    newSize: {x: 1.5, y: 0.69}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.36, z: 0.2}
-  m_Center: {x: 0.19965279, y: 0.021701485, z: 0}
+  m_Size: {x: 1.44, y: 0.41}
+  m_EdgeRadius: 0
 --- !u!114 &114785291421844156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0
   LifeTime: 0
+  Direction: 0
 --- !u!212 &212296680833616404
 SpriteRenderer:
   m_ObjectHideFlags: 1

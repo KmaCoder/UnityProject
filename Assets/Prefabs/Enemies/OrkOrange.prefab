@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 212720531536359078}
   - component: {fileID: 50360603647161764}
   - component: {fileID: 61855049733940088}
-  - component: {fileID: 114475738900553102}
+  - component: {fileID: 114569028713068470}
   m_Layer: 0
   m_Name: Ork
   m_TagString: Untagged
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923024084650062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.44, y: 0, z: 0}
+  m_LocalPosition: {x: -4.54, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4109945709382852}
@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971171987376390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.89, y: -1.89, z: 0}
+  m_LocalPosition: {x: -0.12, y: -1.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926762412794478}
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.85}
+  m_Offset: {x: -0.09, y: 0.85}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -174,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.01, y: 1.5}
+  m_Size: {x: 0.79, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &95570408021964770
 Animator:
@@ -185,7 +185,7 @@ Animator:
   m_GameObject: {fileID: 1932081179086770}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e8528ac43d3acd4cb3ba734a577edd2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 697396ebe0bae2c4fb4cc4a2ccedf0dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -193,7 +193,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114475738900553102
+--- !u!114 &114569028713068470
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -201,12 +201,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932081179086770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d069e66e0b7a7f4397b98d9efaee131, type: 3}
+  m_Script: {fileID: 11500000, guid: e4f9bef985fa25e498f829a904f0cd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PointA: {fileID: 4105991160219822}
   PointB: {fileID: 4641583613087110}
   Speed: 3
+  ReloadTime: 3
+  CarrotSpeed: 0.1
+  CarrotLifeTime: 5
+  CarrotGameObject: {fileID: 114785291421844156, guid: 9c315a76d1adb1647a75d228fd0608b3,
+    type: 2}
 --- !u!212 &212720531536359078
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,7 +244,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e843cbaf901944a8b11ef591da88f36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 839d3b27bd3d1496f89d4ad2a46beb31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
