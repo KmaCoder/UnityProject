@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HeroRabit : MonoBehaviour
 {
+    public static HeroRabit LastRabit;
+    
     public float Speed = 5;
     public float JumpSpeed = 5;
     public float MaxJumpTime = 2;
@@ -15,6 +15,7 @@ public class HeroRabit : MonoBehaviour
     private int _layerId;
 
     private bool _canMove = true;
+    private bool _dead;
     private bool _isGrounded;
     private float _jumpTimeDelta;
 
@@ -26,6 +27,11 @@ public class HeroRabit : MonoBehaviour
     public float InvulnerableTimeLeft { get; private set; }
     public bool IsScaled { get; private set; }
 
+    void Awake()
+    {
+        LastRabit = this;
+    }
+    
     void Start()
     {
         _myBody = GetComponent<Rigidbody2D>();
@@ -116,7 +122,10 @@ public class HeroRabit : MonoBehaviour
 
     public void Die()
     {
+        if (_dead)
+            return;
         _canMove = false;
+        _dead = true;
         _myBody.velocity = Vector2.zero;
         _animator.SetTrigger("die");
     }
@@ -124,6 +133,7 @@ public class HeroRabit : MonoBehaviour
     public void Revive()
     {
         _canMove = true;
+        _dead = false;
         MakeSmaller();
         InvulnerableTimeLeft = 0;
         transform.position = _startPosition;
@@ -153,6 +163,23 @@ public class HeroRabit : MonoBehaviour
     public void OnDieAnimationEnd()
     {
         Revive();
+    }
+
+    public void HitRabbit()
+    {
+        if (InvulnerableTimeLeft > 0)
+            return;
+        if(IsScaled)
+            MakeSmaller();
+        else 
+            LevelController.Current.OnRabitDeath(this);
+    }
+
+    public void OnKillingOrk()
+    {
+        Vector2 vel = _myBody.velocity;
+        vel.y = 5f;
+        _myBody.velocity = vel;
     }
 
     static void SetNewParent(Transform obj, Transform newParent)

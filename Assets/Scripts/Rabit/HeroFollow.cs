@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HeroFollow : MonoBehaviour {
 
-	public HeroRabit Rabit;
+	private HeroRabit _rabit;
+
+	void Start()
+	{
+		_rabit = HeroRabit.LastRabit;
+	}
 
 	void Update () 
 	{
 		Vector3 newCameraPosition = transform.position;
-		newCameraPosition.x = Rabit.transform.position.x;
-		newCameraPosition.y = Rabit.transform.position.y;
+		newCameraPosition.x = _rabit.transform.position.x;
+		newCameraPosition.y = _rabit.transform.position.y;
 		transform.position = newCameraPosition;
 	}
 }
