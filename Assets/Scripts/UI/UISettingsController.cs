@@ -2,7 +2,7 @@
 
 namespace Menu
 {
-	public class SettingsController : MonoBehaviour {
+	public class UISettingsController : MonoBehaviour {
 
 		public void OpenSettings()
 		{
