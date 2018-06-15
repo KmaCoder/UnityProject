@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Enemies
+﻿namespace Enemies
 {
 	public class GreenOrk : OrkMovements {
 

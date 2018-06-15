@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Menu
+namespace UI
 {
     public class DoorLevelChooser : MonoBehaviour
     {

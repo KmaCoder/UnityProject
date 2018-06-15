@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class DeathZone : MonoBehaviour
+namespace Levels
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class DeathZone : MonoBehaviour
     {
-        HeroRabit rabit = other.GetComponent<HeroRabit>();
-        if (rabit != null)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            LevelController.Current.OnOutOfWorld(rabit);
+            HeroRabit rabit = other.GetComponent<HeroRabit>();
+            if (rabit != null)
+            {
+                LevelController.Current.OnOutOfWorld(rabit);
+            }
         }
     }
 }

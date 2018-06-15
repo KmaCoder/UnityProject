@@ -9,6 +9,12 @@ namespace Enemies
         public Transform PointB;
         public float Speed = 3f;
 
+        private Vector3 _pointA;
+        private Vector3 _pointB;
+        private Transform _rabitTransform;
+        private Rigidbody2D _myBody;
+        private SpriteRenderer _sprite;
+        
         protected enum Mode
         {
             GoToA,
@@ -16,16 +22,8 @@ namespace Enemies
             GoToRabbit,
             Dead
         }
-
         protected Mode _mode = Mode.GoToA;
-        private Vector3 _pointA;
-        private Vector3 _pointB;
-
-        private Rigidbody2D _myBody;
-        protected SpriteRenderer _sprite;
         protected Animator _animator;
-        private Transform _rabitTransform;
-
         protected bool _isAttacking;
 
         void Start()
@@ -41,22 +39,18 @@ namespace Enemies
         }
 
         // Update is called once per frame
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             MovementsController();
             UpdateMode();
         }
 
-        void Update()
+        private void Update()
         {
             OnUpdate();
         }
 
-        protected virtual void OnUpdate()
-        {
-        }
-
-        void UpdateMode()
+        private void UpdateMode()
         {
             if (_mode == Mode.Dead)
                 return;
@@ -84,10 +78,6 @@ namespace Enemies
             }
         }
 
-        protected virtual void RabbitInAttackZone()
-        {
-        }
-
         void MovementsController()
         {
             if (_mode == Mode.Dead)
@@ -109,7 +99,7 @@ namespace Enemies
             }
         }
 
-        bool IsArrived(Vector3 dest)
+        private bool IsArrived(Vector3 dest)
         {
             return Math.Abs(dest.x - transform.position.x) < 0.5f;
         }
@@ -147,7 +137,7 @@ namespace Enemies
             }
         }
 
-        void BeatRabbit()
+        private void BeatRabbit()
         {
             _isAttacking = true;
             _animator.SetTrigger("attack_beat");
@@ -169,6 +159,14 @@ namespace Enemies
         public void AttackAnimationEnd()
         {
             _isAttacking = false;
+        }
+        
+        protected virtual void RabbitInAttackZone()
+        {
+        }
+        
+        protected virtual void OnUpdate()
+        {
         }
     }
 }

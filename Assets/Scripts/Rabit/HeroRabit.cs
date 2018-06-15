@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Levels;
+using UnityEngine;
 
 public class HeroRabit : MonoBehaviour
 {
@@ -22,17 +23,17 @@ public class HeroRabit : MonoBehaviour
     private Quaternion _startRotation;
     private Vector3 _initialScale;
     private Transform _initialParent;
+    private bool IsScaled { get; set; }
 
     public float InvulnerableTimeLeft { get; private set; }
-    public bool IsScaled { get; private set; }
     public bool IsDead { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         LastRabit = this;
     }
-    
-    void Start()
+
+    private void Start()
     {
         _myBody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
@@ -44,7 +45,7 @@ public class HeroRabit : MonoBehaviour
         _initialParent = transform.parent;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         GroundedCheck();
         if (_canMove)
@@ -54,7 +55,7 @@ public class HeroRabit : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (InvulnerableTimeLeft > 0)
         {
@@ -67,7 +68,7 @@ public class HeroRabit : MonoBehaviour
         }
     }
 
-    void MovementsController()
+    private void MovementsController()
     {
         float valueX = Input.GetAxis("Horizontal");
         if (Mathf.Abs(valueX) > 0)
@@ -84,7 +85,7 @@ public class HeroRabit : MonoBehaviour
         }
     }
 
-    void JumpsController()
+    private void JumpsController()
     {
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
@@ -107,7 +108,7 @@ public class HeroRabit : MonoBehaviour
         }
     }
 
-    void GroundedCheck()
+    private void GroundedCheck()
     {
         RaycastHit2D hit = Physics2D.Linecast(transform.position + Vector3.up * 0.3f,
             transform.position + Vector3.down * 0.1f, _layerId);
@@ -151,7 +152,7 @@ public class HeroRabit : MonoBehaviour
         IsScaled = true;
     }
 
-    public void MakeSmaller()
+    private void MakeSmaller()
     {
         if (!IsScaled || InvulnerableTimeLeft > 0)
             return;
@@ -182,7 +183,7 @@ public class HeroRabit : MonoBehaviour
         _myBody.velocity = vel;
     }
 
-    static void SetNewParent(Transform obj, Transform newParent)
+    private static void SetNewParent(Transform obj, Transform newParent)
     {
         if (obj.transform.parent != newParent)
         {

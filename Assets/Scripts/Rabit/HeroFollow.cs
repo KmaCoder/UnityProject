@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 
-public class HeroFollow : MonoBehaviour
+namespace Rabit
 {
-    private HeroRabit _rabit;
-
-    void Start()
+    public class HeroFollow : MonoBehaviour
     {
-        _rabit = HeroRabit.LastRabit;
-    }
+        private HeroRabit _rabit;
 
-    void Update()
-    {
-        if (!_rabit.IsDead)
+        private void Start()
         {
+            _rabit = HeroRabit.LastRabit;
+        }
+
+        private void Update()
+        {
+            if (_rabit.IsDead) return;
             Vector3 newCameraPosition = transform.position;
             newCameraPosition.x = _rabit.transform.position.x;
             newCameraPosition.y = _rabit.transform.position.y;

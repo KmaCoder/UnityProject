@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class UILifesController : MonoBehaviour
+    public class UiLifesController : MonoBehaviour
     {
         public Sprite Heart;
         public Sprite HeartBG;

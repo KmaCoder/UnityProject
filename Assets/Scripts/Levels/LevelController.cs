@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 
-public class LevelController : MonoBehaviour
+namespace Levels
 {
-    public static LevelController Current;
-
-    void Awake()
+    public class LevelController : MonoBehaviour
     {
-        Current = this;
-    }
+        public static LevelController Current;
 
-    public void OnRabitDeath(HeroRabit rabit)
-    {
-        rabit.Die();
-    }
+        private void Awake()
+        {
+            if (Current != null && Current != this)
+            {
+                Destroy(this);
+                return;
+            }
 
-    public void OnOutOfWorld(HeroRabit rabit)
-    {
-        rabit.Die();
-        rabit.Revive();
+            Current = this;
+        }
+
+        public void OnRabitDeath(HeroRabit rabit)
+        {
+            rabit.Die();
+        }
+
+        public void OnOutOfWorld(HeroRabit rabit)
+        {
+            rabit.Die();
+            rabit.Revive();
+        }
     }
 }

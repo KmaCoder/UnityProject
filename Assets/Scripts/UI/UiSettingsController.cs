@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Menu
+namespace UI
 {
-	public class UISettingsController : MonoBehaviour {
+	public class UiSettingsController : MonoBehaviour {
 
 		public void OpenSettings()
 		{

@@ -1,24 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ParallaxLayer : MonoBehaviour
+namespace Levels
 {
-    public float Slowdown = 0.5f;
-    private Vector3 _lastPosition;
-
-    void Awake()
+    public class ParallaxLayer : MonoBehaviour
     {
-        _lastPosition = Camera.main.transform.position;
-    }
+        public float Slowdown = 0.5f;
+        private Vector3 _lastPosition;
 
-    void LateUpdate()
-    {
-        Vector3 newPosition = Camera.main.transform.position;
-        Vector3 diff = newPosition - _lastPosition;
-        _lastPosition = newPosition;
-        Vector3 myPos = transform.position;
-        myPos += Slowdown * diff;
-        transform.position = myPos;
+        private void Awake()
+        {
+            _lastPosition = Camera.main.transform.position;
+        }
+
+        private void LateUpdate()
+        {
+            Vector3 newPosition = Camera.main.transform.position;
+            Vector3 diff = newPosition - _lastPosition;
+            _lastPosition = newPosition;
+            Vector3 myPos = transform.position;
+            myPos += Slowdown * diff;
+            transform.position = myPos;
+        }
     }
 }
