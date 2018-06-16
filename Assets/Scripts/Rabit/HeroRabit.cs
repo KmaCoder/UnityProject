@@ -133,8 +133,9 @@ public class HeroRabit : MonoBehaviour
 
     public void Revive()
     {
+        if (LevelController.Current.LifesLeft <= 0)
+            return;
         _canMove = true;
-        IsDead = false;
         MakeSmaller();
         InvulnerableTimeLeft = 0;
         transform.position = _startPosition;
@@ -142,6 +143,7 @@ public class HeroRabit : MonoBehaviour
         _myBody.velocity = Vector2.zero;
         _myBody.angularVelocity = 0;
         _animator.SetTrigger("reset");
+        IsDead = false;
     }
 
     public void MakeBigger()

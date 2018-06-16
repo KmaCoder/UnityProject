@@ -4,8 +4,8 @@ namespace CollectableObjects
 {
     public class Collectable : MonoBehaviour
     {
-        private bool _hideAnimation = false;
-    
+        private bool _hideAnimation;
+
         protected virtual void OnRabitHit(HeroRabit rabit)
         {
         }
@@ -18,6 +18,7 @@ namespace CollectableObjects
                 if (rabit != null)
                 {
                     OnRabitHit(rabit);
+                    _hideAnimation = true;
                 }
             }
         }
@@ -28,6 +29,11 @@ namespace CollectableObjects
         }
 
         public void CollectedHide()
+        {
+            GetComponent<Animator>().SetTrigger("hide");
+        }
+
+        public void OnAnimationEnd()
         {
             Destroy(gameObject);
         }

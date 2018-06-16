@@ -107,6 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c2ebf40d8fdac4da2363a0f91037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LifesController: {fileID: 0}
+  CoinsController: {fileID: 0}
+  FruitsController: {fileID: 0}
+  DiamondsController: {fileID: 0}
 --- !u!114 &114728100420419604
 MonoBehaviour:
   m_ObjectHideFlags: 1

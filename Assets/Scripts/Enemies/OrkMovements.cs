@@ -14,7 +14,7 @@ namespace Enemies
         private Transform _rabitTransform;
         private Rigidbody2D _myBody;
         private SpriteRenderer _sprite;
-        
+
         protected enum Mode
         {
             GoToA,
@@ -22,6 +22,7 @@ namespace Enemies
             GoToRabbit,
             Dead
         }
+
         protected Mode _mode = Mode.GoToA;
         protected Animator _animator;
         protected bool _isAttacking;
@@ -85,7 +86,7 @@ namespace Enemies
 
             float value = GetDirection();
             _sprite.flipX = value > 0;
-            
+
             if (!_isAttacking)
             {
                 Vector2 vel = _myBody.velocity;
@@ -137,8 +138,15 @@ namespace Enemies
             }
         }
 
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            OnCollisionEnter2D(other);
+        }
+
         private void BeatRabbit()
         {
+            if (_isAttacking)
+                return;
             _isAttacking = true;
             _animator.SetTrigger("attack_beat");
             HeroRabit.LastRabit.HitRabbit();
@@ -160,11 +168,11 @@ namespace Enemies
         {
             _isAttacking = false;
         }
-        
+
         protected virtual void RabbitInAttackZone()
         {
         }
-        
+
         protected virtual void OnUpdate()
         {
         }
