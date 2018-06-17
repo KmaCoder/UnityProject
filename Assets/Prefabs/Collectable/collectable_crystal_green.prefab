@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212441454284006022}
   - component: {fileID: 114772099315367146}
   - component: {fileID: 61741730917684210}
+  - component: {fileID: 95959920193538932}
   m_Layer: 0
   m_Name: collectable_crystal_green
   m_TagString: Collectable
@@ -67,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.23, y: 1.05}
   m_EdgeRadius: 0
+--- !u!95 &95959920193538932
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434001607590570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d503ba8265e16b041857fdf5be5e7e6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114772099315367146
 MonoBehaviour:
   m_ObjectHideFlags: 1

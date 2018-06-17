@@ -51,12 +51,16 @@ public class HeroRabit : MonoBehaviour
         if (_canMove)
         {
             MovementsController();
-            JumpsController();
         }
     }
 
     private void Update()
     {
+        if (_canMove)
+        {
+            JumpsController();
+        }
+        
         if (InvulnerableTimeLeft > 0)
         {
             InvulnerableTimeLeft -= Time.deltaTime;
@@ -133,7 +137,7 @@ public class HeroRabit : MonoBehaviour
 
     public void Revive()
     {
-        if (LevelController.Current.LifesLeft <= 0)
+        if (LevelController.Current != null && LevelController.Current.LifesLeft <= 0)
             return;
         _canMove = true;
         MakeSmaller();

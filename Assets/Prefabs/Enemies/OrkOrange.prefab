@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4641583613087110}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PointB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4105991160219822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PointA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 50360603647161764}
   - component: {fileID: 61855049733940088}
   - component: {fileID: 114569028713068470}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4109945709382852}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OrkOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

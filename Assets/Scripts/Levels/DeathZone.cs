@@ -9,6 +9,12 @@ namespace Levels
             HeroRabit rabit = other.GetComponent<HeroRabit>();
             if (rabit != null)
             {
+                if (LevelController.Current == null)
+                {
+                    rabit.Die();
+                    return;
+                }
+
                 LevelController.Current.OnOutOfWorld(rabit);
             }
         }

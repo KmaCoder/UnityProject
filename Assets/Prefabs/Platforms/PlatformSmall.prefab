@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4456258740517846}
   - component: {fileID: 68753784716604902}
   - component: {fileID: 114366441390588996}
+  - component: {fileID: 251018821114493128}
   m_Layer: 8
   m_Name: PlatformSmall
   m_TagString: Untagged
@@ -141,7 +142,7 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
@@ -159,9 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec12b0136b3f13340a626af3054bbe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveBy: {x: 0, y: 2, z: 0}
+  MoveBy: {x: 0, y: 5, z: 0}
   Speed: 0.05
-  Timeout: 1
+  Timeout: 0.25
 --- !u!212 &212317628492918550
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -285,3 +286,21 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+--- !u!251 &251018821114493128
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442726913558414}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 160
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

@@ -18,7 +18,6 @@ namespace CollectableObjects
                 if (rabit != null)
                 {
                     OnRabitHit(rabit);
-                    _hideAnimation = true;
                 }
             }
         }
@@ -30,6 +29,7 @@ namespace CollectableObjects
 
         public void CollectedHide()
         {
+            _hideAnimation = true;
             GetComponent<Animator>().SetTrigger("hide");
         }
 

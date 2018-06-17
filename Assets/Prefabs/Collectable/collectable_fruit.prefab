@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212331740293522108}
   - component: {fileID: 114866183317811444}
   - component: {fileID: 61767919311662038}
+  - component: {fileID: 95319013557363500}
   m_Layer: 0
   m_Name: collectable_fruit
   m_TagString: Collectable
@@ -67,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 0.96}
   m_EdgeRadius: 0
+--- !u!95 &95319013557363500
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948123049261996}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d503ba8265e16b041857fdf5be5e7e6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114866183317811444
 MonoBehaviour:
   m_ObjectHideFlags: 1

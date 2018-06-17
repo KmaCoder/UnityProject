@@ -7,7 +7,7 @@ namespace UI
 
 		private void Start()
 		{
-			SetCount(0);
+			SetCount(PlayerPrefs.GetInt("coins", 0));
 		}
 
 		public void SetCount(int count)

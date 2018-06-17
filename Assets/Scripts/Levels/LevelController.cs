@@ -1,6 +1,7 @@
 ﻿using CollectableObjects;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Levels
 {
@@ -13,10 +14,12 @@ namespace Levels
         public UiFruitsCounter FruitsController;
         public UiDiamondsController DiamondsController;
 
+        public Animator EndGameWindow;
+        public Animator CompletedWindow;
+
         private int _lifesLeft;
-        private int _coinsCollected;
-        private int _fruitsCollected;
         private int _diamondsCollected;
+        private LevelStat _levelStat;
 
         public int LifesLeft
         {
@@ -36,19 +39,51 @@ namespace Levels
 
         private void Start()
         {
-            Reset();
+            LoadSceneInfo();
         }
 
-        private void Reset()
+        private void LoadSceneInfo()
         {
+            string str = PlayerPrefs.GetString(SceneManager.GetActiveScene().name, null);
+            _levelStat = JsonUtility.FromJson<LevelStat>(str) ?? new LevelStat();
+
             _lifesLeft = 3;
-            _coinsCollected = 0;
-            _fruitsCollected = 0;
             _diamondsCollected = 0;
+
+            SetUpFruits();
             LifesController.SetLifes(_lifesLeft);
-            CoinsController.SetCount(_coinsCollected);
-            FruitsController.SetCount(_fruitsCollected);
+            CoinsController.SetCount(PlayerPrefs.GetInt("coins", 0));
             DiamondsController.Reset();
+        }
+
+        private void SetUpFruits()
+        {
+            Fruit[] fruits = FindObjectsOfType<Fruit>();
+            for (int i = 0; i < fruits.Length; i++)
+            {
+                fruits[i].Id = i;
+            }
+
+            foreach (int id in _levelStat.collectedFruits)
+            {
+                if (fruits[id] == null)
+                    _levelStat.collectedFruits.Remove(id);
+                fruits[id].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            }
+            
+            FruitsController.SetCount(_levelStat.collectedFruits.Count);
+            FruitsController.MaxFruits = fruits.Length;
+        }
+
+        private void SaveSceneInfo()
+        {
+            PlayerPrefs.SetString(SceneManager.GetActiveScene().name, JsonUtility.ToJson(_levelStat));
+        }
+
+        public void OnLevelCompleted()
+        {
+            SaveSceneInfo();
+            CompletedWindow.SetTrigger("open");
         }
 
         public void OnRabitDeath(HeroRabit rabit)
@@ -59,7 +94,9 @@ namespace Levels
             _lifesLeft--;
             LifesController.SetLifes(_lifesLeft);
             if (_lifesLeft <= 0)
-                Debug.Log("END OF GAME");
+            {
+                EndGameWindow.SetTrigger("open");
+            }
         }
 
         public void OnOutOfWorld(HeroRabit rabit)
@@ -69,18 +106,37 @@ namespace Levels
 
         public void CoinCollected()
         {
-            CoinsController.SetCount(++_coinsCollected);
+            int coins = PlayerPrefs.GetInt("coins", 0) + 1;
+            PlayerPrefs.SetInt("coins", coins);
+            CoinsController.SetCount(coins);
         }
 
-        public void FruitCollected()
+        public void FruitCollected(int id)
         {
-            FruitsController.SetCount(++_fruitsCollected);
+            if (_levelStat.collectedFruits.IndexOf(id) >= 0)
+                return;
+            _levelStat.collectedFruits.Add(id);
+            FruitsController.SetCount(_levelStat.collectedFruits.Count);
+            if (_levelStat.collectedFruits.Count == FruitsController.MaxFruits)
+                _levelStat.hasAllFruits = true;
         }
 
         public void DiamondCollected(Crystal.DiamondType type)
         {
             ++_diamondsCollected;
+            if (_diamondsCollected >= 3)
+                _levelStat.hasAllCrystals = true;
             DiamondsController.DiamondCollected(type);
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void ToMenu()
+        {
+            SceneManager.LoadScene("LevelChooser");
         }
     }
 }

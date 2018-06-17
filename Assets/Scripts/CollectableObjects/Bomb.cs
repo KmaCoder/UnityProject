@@ -1,4 +1,6 @@
-﻿namespace CollectableObjects
+﻿using UnityEngine;
+
+namespace CollectableObjects
 {
 	public class Bomb : Collectable {
 

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114448104642764766}
   - component: {fileID: 50428951618922586}
   - component: {fileID: 61494478282335514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeroRabit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456932376907290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.76, y: 0.64, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,8 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  JumpSpeed: 7
+  JumpSpeed: 6
   MaxJumpTime: 1
+  InvulnerableTime: 4
 --- !u!212 &212870106201199884
 SpriteRenderer:
   m_ObjectHideFlags: 1

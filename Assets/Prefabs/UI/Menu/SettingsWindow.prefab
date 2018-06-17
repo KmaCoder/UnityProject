@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224910517742391830}
   - component: {fileID: 95768536431283200}
-  - component: {fileID: 114420698470318034}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -238,17 +237,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Settings
---- !u!114 &114420698470318034
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535883622876130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9384e00b05105664088025e078c970f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114459914831636702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,15 +421,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114420698470318034}
-        m_MethodName: CloseSettings
-        m_Mode: 1
+      - m_Target: {fileID: 95768536431283200}
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: close
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
