@@ -27,7 +27,7 @@ namespace Enemies
         protected Animator _animator;
         protected bool _isAttacking;
 
-        void Start()
+        private void Start()
         {
             _myBody = GetComponent<Rigidbody2D>();
             _sprite = GetComponent<SpriteRenderer>();

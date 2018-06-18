@@ -4,9 +4,9 @@ namespace CollectableObjects
 {
 	public class Crystal : Collectable
 	{
-		public DiamondType Type = DiamondType.Blue;
+		public CrystalType Type = CrystalType.Blue;
 		
-		public enum DiamondType
+		public enum CrystalType
 		{
 			Blue, Green, Red
 		}

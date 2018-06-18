@@ -22,7 +22,7 @@ namespace Levels
         }
 
         // Update is called once per frame
-        private void Update()
+        private void FixedUpdate()
         {
             Vector3 myPos = transform.position;
             Vector3 target = _goingToA ? _pointA : _pointB;

@@ -23,17 +23,17 @@ namespace UI
                 SetDiamond(transform.GetChild(i).name, Empty);
         }
 
-        public void DiamondCollected(Crystal.DiamondType type)
+        public void DiamondCollected(Crystal.CrystalType type)
         {
             switch (type)
             {
-                case Crystal.DiamondType.Blue:
+                case Crystal.CrystalType.Blue:
                     SetDiamond("blue_diamond", BlueDiamond);
                     break;
-                case Crystal.DiamondType.Green:
+                case Crystal.CrystalType.Green:
                     SetDiamond("green_diamond", GreenDiamond);
                     break;
-                case Crystal.DiamondType.Red:
+                case Crystal.CrystalType.Red:
                     SetDiamond("red_diamond", RedDiamond);
                     break;
                 default:

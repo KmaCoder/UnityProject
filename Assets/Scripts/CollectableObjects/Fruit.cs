@@ -3,15 +3,13 @@ using UnityEngine;
 
 namespace CollectableObjects
 {
+	[System.Serializable]
 	public class Fruit : Collectable
 	{
-//		[HideInInspector]
-		public int Id;
-
 		protected override void OnRabitHit(HeroRabit rabit)
 		{
 			CollectedHide();
-			LevelController.Current.FruitCollected(Id);
+			LevelController.Current.FruitCollected(this);
 		}
 	}
 }

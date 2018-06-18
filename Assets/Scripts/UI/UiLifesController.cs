@@ -8,7 +8,7 @@ namespace UI
         public Sprite Heart;
         public Sprite HeartEmpty;
 
-        public void SetLifes(int value)
+        public void SetLives(int value)
         {
             if (value > transform.childCount)
                 value = transform.childCount;

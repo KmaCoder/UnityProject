@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 224801174449811688}
   - component: {fileID: 95376953782340480}
   m_Layer: 5
-  m_Name: CompletedWindow
+  m_Name: WinLevelWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

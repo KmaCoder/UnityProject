@@ -5,18 +5,9 @@ namespace UI
 {
 	public class UiFruitsCounter : MonoBehaviour
 	{
-		public int MaxFruits = 11;
-
-		private void Start()
+		public void SetCount(int count, int max)
 		{
-			SetCount(0);
-		}
-
-		public void SetCount(int count)
-		{
-			if (count > MaxFruits)
-				count = MaxFruits;
-			transform.GetComponentInChildren<Text>().text = count + "/" + MaxFruits;
+			transform.GetComponentInChildren<Text>().text = count + "/" + max;
 		}
 	}
 }

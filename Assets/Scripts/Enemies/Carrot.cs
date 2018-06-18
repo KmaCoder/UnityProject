@@ -15,7 +15,7 @@ namespace Enemies
             GetComponent<SpriteRenderer>().flipX = Direction;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             transform.position -= new Vector3(Speed * (Direction ? 1 : -1), 0, 0);
         }

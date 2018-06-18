@@ -137,7 +137,7 @@ public class HeroRabit : MonoBehaviour
 
     public void Revive()
     {
-        if (LevelController.Current != null && LevelController.Current.LifesLeft <= 0)
+        if (LevelController.Current != null && LevelController.Current.LivesLeft <= 0)
             return;
         _canMove = true;
         MakeSmaller();

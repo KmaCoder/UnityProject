@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using CollectableObjects;
 
-[System.Serializable]
-public class LevelStat {
-	public bool levelPassed = false;
-	public bool hasAllCrystals = false;
-	public List<int> collectedFruits = new List<int>();
-	public bool hasAllFruits = false;
+namespace Levels
+{
+	[System.Serializable]
+	public class LevelStat {
+		public bool LevelPassed = false;
+		public bool HasAllCrystals = false;
+		public List<Fruit> CollectedFruits = new List<Fruit>();
+		public bool HasAllFruits = false;
+	}
 }
