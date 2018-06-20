@@ -277,7 +277,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -484,7 +484,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -605,9 +605,24 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -15.56
       objectReference: {fileID: 0}
+    - target: {fileID: 224388761710842518, guid: 29211b0fc3e799a4ab03b0c3e39dc395,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224388761710842518, guid: 29211b0fc3e799a4ab03b0c3e39dc395,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29211b0fc3e799a4ab03b0c3e39dc395, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &253132831 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224388761710842518, guid: 29211b0fc3e799a4ab03b0c3e39dc395,
+    type: 2}
+  m_PrefabInternal: {fileID: 253132830}
 --- !u!4 &325719356 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992421075482930, guid: 68f3d19d3a95f584f920c99b2c71f464,
@@ -698,7 +713,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1254133921}
+  - {fileID: 253132831}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1022,7 +1037,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -1434,7 +1449,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -1508,11 +1523,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
---- !u!224 &1254133921 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224395342634380856, guid: 29211b0fc3e799a4ab03b0c3e39dc395,
-    type: 2}
-  m_PrefabInternal: {fileID: 253132830}
 --- !u!1001 &1270876494
 Prefab:
   m_ObjectHideFlags: 0
@@ -1618,7 +1628,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -2491,7 +2501,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using CollectableObjects;
 using UI;
 using UnityEngine;
@@ -17,9 +17,9 @@ namespace Levels
         public UiFruitsCounter FruitsController;
         public UiDiamondsController DiamondsController;
 
-        public Animator EndGameWindow;
+        public Animator LoseGameWindow;
         public Animator CompletedWindow;
-        
+
         private LevelStat _levelStat;
         private readonly List<Crystal.CrystalType> _crystals = new List<Crystal.CrystalType>();
         private int _coinsCollected;
@@ -60,27 +60,25 @@ namespace Levels
 
         private void SetUpFruits()
         {
+            var globalId = 0;
             var fruits = FindObjectsOfType<Fruit>();
-            foreach (var fruit in fruits)
+            Array.ForEach(fruits, fruit => fruit.Id = globalId++);
+
+            var newList = new List<int>();
+
+            foreach (var id in _levelStat.CollectedFruits)
             {
-                Debug.Log(fruit);
+                var item = Array.Find(fruits, fruit => fruit.Id == id);
+                if (item != null)
+                {
+                    newList.Add(id);
+                    item.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+                }
             }
 
-            Debug.Log("");
-            
-            foreach (var fruit in _levelStat.CollectedFruits)
-            {
-                Debug.Log(fruit);
-                fruit.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-//                if (fruits.Contains(fruit))
-//                {
-//                    Debug.Log(fruit);
-//                }
-            }
+            _levelStat.CollectedFruits = newList;
 
-            
             _maxFruits = fruits.Length;
-
             FruitsController.SetCount(_levelStat.CollectedFruits.Count, _maxFruits);
         }
 
@@ -95,11 +93,11 @@ namespace Levels
             _levelStat.LevelPassed = true;
             SaveSceneInfo();
 
-            CompletedWindow.transform.Find("SettingsPanel").Find("TextFruits").GetComponent<Text>().text =
-                _levelStat.CollectedFruits.Count + "/" + _maxFruits;
-            CompletedWindow.transform.Find("SettingsPanel").Find("TextCoins").GetComponent<Text>().text =
-                "+" + _coinsCollected;
-            
+            var panel = CompletedWindow.transform.Find("SettingsPanel");
+            panel.Find("TextFruits").GetComponent<Text>().text = _levelStat.CollectedFruits.Count + "/" + _maxFruits;
+            panel.Find("TextCoins").GetComponent<Text>().text = "+" + _coinsCollected;
+            SetUpCollectedDiamonds(panel);
+
             CompletedWindow.SetTrigger("open");
             Pause();
         }
@@ -112,9 +110,24 @@ namespace Levels
             LifesController.SetLives(--LivesLeft);
             if (LivesLeft <= 0)
             {
-                EndGameWindow.SetTrigger("open");
+                SetUpCollectedDiamonds(LoseGameWindow.transform.Find("SettingsPanel"));
+                LoseGameWindow.SetTrigger("open");
                 Pause();
             }
+        }
+
+        private void SetUpCollectedDiamonds(Transform windowPanel)
+        {
+            windowPanel.Find("CrystalBlue").GetComponent<Image>().sprite = _crystals.Contains(Crystal.CrystalType.Blue)
+                ? DiamondsController.BlueDiamond
+                : DiamondsController.Empty;
+            windowPanel.Find("CrystalGreen").GetComponent<Image>().sprite =
+                _crystals.Contains(Crystal.CrystalType.Green)
+                    ? DiamondsController.GreenDiamond
+                    : DiamondsController.Empty;
+            windowPanel.Find("CrystalRed").GetComponent<Image>().sprite = _crystals.Contains(Crystal.CrystalType.Red)
+                ? DiamondsController.RedDiamond
+                : DiamondsController.Empty;
         }
 
         public void OnOutOfWorld(HeroRabit rabit)
@@ -130,11 +143,11 @@ namespace Levels
             CoinsController.SetCount(PlayerPrefs.GetInt("coins", 0));
         }
 
-        public void FruitCollected(Fruit fruit)
+        public void FruitCollected(int fruitId)
         {
-            if (_levelStat.CollectedFruits.Contains(fruit))
+            if (_levelStat.CollectedFruits.Contains(fruitId))
                 return;
-            _levelStat.CollectedFruits.Add(fruit);
+            _levelStat.CollectedFruits.Add(fruitId);
             FruitsController.SetCount(_levelStat.CollectedFruits.Count, _maxFruits);
             if (_levelStat.CollectedFruits.Count == _maxFruits)
                 _levelStat.HasAllFruits = true;

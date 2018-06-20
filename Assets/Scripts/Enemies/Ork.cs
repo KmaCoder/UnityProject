@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class OrkMovements : MonoBehaviour
+    public class Ork : MonoBehaviour
     {
         public Transform PointA;
         public Transform PointB;

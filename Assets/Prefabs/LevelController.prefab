@@ -111,6 +111,8 @@ MonoBehaviour:
   CoinsController: {fileID: 0}
   FruitsController: {fileID: 0}
   DiamondsController: {fileID: 0}
+  LoseGameWindow: {fileID: 0}
+  CompletedWindow: {fileID: 0}
 --- !u!114 &114728100420419604
 MonoBehaviour:
   m_ObjectHideFlags: 1

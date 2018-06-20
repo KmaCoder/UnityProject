@@ -5,7 +5,7 @@ namespace Levels
     public class MovingPlatform : MonoBehaviour
     {
         public Vector3 MoveBy;
-        public float Speed = 0.5f;
+        public float Speed = 0.1f;
         public float Timeout = 1f;
 
         private Vector3 _pointA;

@@ -1,6 +1,6 @@
 ﻿namespace Enemies
 {
-	public class GreenOrk : OrkMovements {
+	public class GreenOrk : Ork {
 
 		protected override void RabbitInAttackZone()
 		{

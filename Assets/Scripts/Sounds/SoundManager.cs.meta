@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 8ebae07211ceb6e469d4d39cdbe2e335
+timeCreated: 1529407827
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - AttackClip: {fileID: 8300000, guid: ece9b14a232f14f48ab9a5e844cb5daf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

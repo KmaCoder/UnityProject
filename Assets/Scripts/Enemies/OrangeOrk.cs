@@ -2,7 +2,7 @@
 
 namespace Enemies
 {
-    public class OrangeOrk : OrkMovements
+    public class OrangeOrk : Ork
     {
         public float ReloadTime = 1f;
         public float CarrotSpeed = 10f;

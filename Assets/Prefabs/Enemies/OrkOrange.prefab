@@ -208,7 +208,7 @@ MonoBehaviour:
   PointB: {fileID: 4641583613087110}
   Speed: 3
   ReloadTime: 3
-  CarrotSpeed: 0.1
+  CarrotSpeed: 0.07
   CarrotLifeTime: 5
   CarrotGameObject: {fileID: 114785291421844156, guid: 9c315a76d1adb1647a75d228fd0608b3,
     type: 2}

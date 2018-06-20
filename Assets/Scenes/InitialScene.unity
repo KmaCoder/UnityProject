@@ -1434,12 +1434,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f5d783a84d5d9f458df8e4fd812e68b, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1151808520 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114420698470318034, guid: 7f5d783a84d5d9f458df8e4fd812e68b,
+--- !u!95 &1151808520 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95768536431283200, guid: 7f5d783a84d5d9f458df8e4fd812e68b,
     type: 2}
   m_PrefabInternal: {fileID: 1151808519}
-  m_Script: {fileID: 11500000, guid: 9384e00b05105664088025e078c970f7, type: 3}
 --- !u!1 &1275153947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,14 +1669,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1151808520}
-        m_MethodName: OpenSettings
-        m_Mode: 1
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: open
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
