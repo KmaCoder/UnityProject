@@ -207,6 +207,8 @@ MonoBehaviour:
   PointA: {fileID: 4105991160219822}
   PointB: {fileID: 4641583613087110}
   Speed: 3
+  AudioAttack: {fileID: 8300000, guid: ece9b14a232f14f48ab9a5e844cb5daf, type: 3}
+  AudioDie: {fileID: 8300000, guid: 0da0a61767f664de1a8b3e03d7ca4d4e, type: 3}
   ReloadTime: 3
   CarrotSpeed: 0.07
   CarrotLifeTime: 5

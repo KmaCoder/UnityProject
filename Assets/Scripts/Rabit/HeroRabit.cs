@@ -1,14 +1,19 @@
-﻿using Levels;
+﻿using System;
+using Levels;
+using Sounds;
 using UnityEngine;
 
 public class HeroRabit : MonoBehaviour
 {
     public static HeroRabit LastRabit;
-    
+
     public float Speed = 5;
     public float JumpSpeed = 5;
     public float MaxJumpTime = 2;
     public float InvulnerableTime = 4;
+
+    public AudioClip AudioRun;
+    public AudioClip AudioLand;
 
     private Rigidbody2D _myBody;
     private SpriteRenderer _sprite;
@@ -24,6 +29,9 @@ public class HeroRabit : MonoBehaviour
     private Vector3 _initialScale;
     private Transform _initialParent;
     private bool IsScaled { get; set; }
+
+    private AudioSource _landSoundSource;
+    private AudioSource _runSourceSource;
 
     public float InvulnerableTimeLeft { get; private set; }
     public bool IsDead { get; private set; }
@@ -43,6 +51,11 @@ public class HeroRabit : MonoBehaviour
         _startRotation = transform.rotation;
         _initialScale = transform.localScale;
         _initialParent = transform.parent;
+
+        _landSoundSource = gameObject.AddComponent<AudioSource>();
+        _runSourceSource = gameObject.AddComponent<AudioSource>();
+        _runSourceSource.clip = AudioRun;
+        _landSoundSource.clip = AudioLand;
     }
 
     private void FixedUpdate()
@@ -56,11 +69,24 @@ public class HeroRabit : MonoBehaviour
 
     private void Update()
     {
+        if (SoundManager.Instance.SoundOn)
+        {
+            if (Math.Abs(_myBody.velocity.x) > 0.1f && _isGrounded)
+            {
+                if (!_runSourceSource.isPlaying)
+                    _runSourceSource.Play();
+            }
+            else
+            {
+                _runSourceSource.Pause();
+            }
+        }
+
         if (_canMove)
         {
             JumpsController();
         }
-        
+
         if (InvulnerableTimeLeft > 0)
         {
             InvulnerableTimeLeft -= Time.deltaTime;
@@ -116,13 +142,18 @@ public class HeroRabit : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Linecast(transform.position + Vector3.up * 0.3f,
             transform.position + Vector3.down * 0.1f, _layerId);
-        _isGrounded = hit;
         _animator.SetBool("jump", !_isGrounded);
 
         if (hit.transform != null && hit.transform.GetComponent<MovingPlatform>() != null)
             SetNewParent(transform, hit.transform);
         else
             SetNewParent(transform, _initialParent);
+
+        bool prevGrounded = _isGrounded;
+        _isGrounded = hit;
+
+        if (SoundManager.Instance.SoundOn && prevGrounded == false && _isGrounded && !_landSoundSource.isPlaying)
+            _landSoundSource.Play();
     }
 
     public void Die()
@@ -131,7 +162,7 @@ public class HeroRabit : MonoBehaviour
             return;
         _canMove = false;
         IsDead = true;
-        _myBody.velocity = Vector2.zero;
+        SetVelocityZero();
         _animator.SetTrigger("die");
     }
 
@@ -144,8 +175,7 @@ public class HeroRabit : MonoBehaviour
         InvulnerableTimeLeft = 0;
         transform.position = _startPosition;
         transform.rotation = _startRotation;
-        _myBody.velocity = Vector2.zero;
-        _myBody.angularVelocity = 0;
+        SetVelocityZero();
         _animator.SetTrigger("reset");
         IsDead = false;
     }
@@ -176,9 +206,9 @@ public class HeroRabit : MonoBehaviour
     {
         if (InvulnerableTimeLeft > 0)
             return;
-        if(IsScaled)
+        if (IsScaled)
             MakeSmaller();
-        else 
+        else
             LevelController.Current.OnRabitDeath(this);
     }
 
@@ -197,5 +227,11 @@ public class HeroRabit : MonoBehaviour
             obj.transform.parent = newParent;
             obj.transform.position = pos;
         }
+    }
+
+    public void SetVelocityZero()
+    {
+        _myBody.velocity = Vector2.zero;
+        _myBody.angularVelocity = 0;
     }
 }

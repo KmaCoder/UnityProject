@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456932376907290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.2, y: 0, z: -5}
+  m_LocalPosition: {x: 70, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,6 +111,8 @@ MonoBehaviour:
   JumpSpeed: 6
   MaxJumpTime: 1
   InvulnerableTime: 4
+  AudioRun: {fileID: 8300000, guid: 0d024189a711c440997b2d9f341c8dd0, type: 3}
+  AudioLand: {fileID: 8300000, guid: 4678dc960a2b949329a55d696cf4ec68, type: 3}
 --- !u!212 &212870106201199884
 SpriteRenderer:
   m_ObjectHideFlags: 1

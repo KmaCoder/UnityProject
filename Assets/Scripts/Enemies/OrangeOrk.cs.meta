@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: e4f9bef985fa25e498f829a904f0cd63
-timeCreated: 1528895787
+timeCreated: 1529576667
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PointA: {instanceID: 0}
+  - PointB: {instanceID: 0}
+  - AudioAttack: {fileID: 8300000, guid: ece9b14a232f14f48ab9a5e844cb5daf, type: 3}
+  - CarrotGameObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

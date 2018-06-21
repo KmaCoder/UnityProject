@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using Sounds;
+using UnityEngine;
 
 namespace CollectableObjects
 {
     public class Collectable : MonoBehaviour
     {
+        public AudioClip AudioCollected;
         private bool _hideAnimation;
 
         protected virtual void OnRabitHit(HeroRabit rabit)
@@ -31,6 +33,7 @@ namespace CollectableObjects
         {
             _hideAnimation = true;
             GetComponent<Animator>().SetTrigger("hide");
+            SoundManager.Instance.PlaySound(AudioCollected);
         }
 
         public void OnAnimationEnd()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CollectableObjects;
+using Sounds;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,10 +21,16 @@ namespace Levels
         public Animator LoseGameWindow;
         public Animator CompletedWindow;
 
+        public AudioClip AudioDeath;
+        public AudioClip AudioLose;
+        public AudioClip AudioWin;
+
         private LevelStat _levelStat;
         private readonly List<Crystal.CrystalType> _crystals = new List<Crystal.CrystalType>();
         private int _coinsCollected;
         private int _maxFruits;
+
+        private AudioSource _soundSource;
 
         public int LivesLeft { get; private set; }
 
@@ -36,6 +43,7 @@ namespace Levels
             }
 
             Current = this;
+            _soundSource = gameObject.AddComponent<AudioSource>();
         }
 
         private void Start()
@@ -100,6 +108,9 @@ namespace Levels
 
             CompletedWindow.SetTrigger("open");
             Pause();
+
+            HeroRabit.LastRabit.SetVelocityZero();
+            SoundManager.Instance.PlaySound(AudioWin, _soundSource);
         }
 
         public void OnRabitDeath(HeroRabit rabit)
@@ -113,6 +124,11 @@ namespace Levels
                 SetUpCollectedDiamonds(LoseGameWindow.transform.Find("SettingsPanel"));
                 LoseGameWindow.SetTrigger("open");
                 Pause();
+                SoundManager.Instance.PlaySound(AudioLose, _soundSource);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySound(AudioDeath, _soundSource);
             }
         }
 

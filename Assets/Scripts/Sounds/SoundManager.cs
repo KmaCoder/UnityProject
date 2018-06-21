@@ -6,7 +6,10 @@ namespace Sounds
     {
         public static SoundManager Instance;
 
-        public AudioClip AttackClip;
+        public AudioClip UIClicked;
+
+        private AudioSource _soundSource;
+        private AudioSource _uiSoundSource;
 
         public bool SoundOn
         {
@@ -20,7 +23,7 @@ namespace Sounds
         }
 
         private bool _soundOn;
-        private AudioSource _audioSource;
+        private bool _musicOn;
 
         private void Awake()
         {
@@ -31,13 +34,38 @@ namespace Sounds
             }
 
             Instance = this;
-            _audioSource = gameObject.AddComponent<AudioSource> ();
+            _soundOn = PlayerPrefs.GetInt("sound", 1) == 1;
+            _soundSource = gameObject.AddComponent<AudioSource>();
+            _uiSoundSource = gameObject.AddComponent<AudioSource>();
         }
 
-        public void PlayAttackSound()
+        public void PlaySound(AudioClip clip, AudioSource source)
         {
-            _audioSource.clip = AttackClip;
-            _audioSource.Play();
+            if (SoundOn)
+            {
+//                if (source.clip == clip && source.isPlaying)
+//                    return;
+                source.clip = clip;
+                source.Play();
+            }
+        }
+
+        public void PlaySound(AudioClip clip)
+        {
+            if (SoundOn)
+            {
+                _soundSource.clip = clip;
+                _soundSource.Play();
+            }
+        }
+
+        public void PlayButtonClicked()
+        {
+            if (SoundOn)
+            {
+                _uiSoundSource.clip = UIClicked;
+                _uiSoundSource.Play();
+            }
         }
     }
 }

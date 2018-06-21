@@ -1,4 +1,5 @@
 ﻿using System;
+using Sounds;
 using UnityEngine;
 
 namespace Enemies
@@ -8,6 +9,8 @@ namespace Enemies
         public Transform PointA;
         public Transform PointB;
         public float Speed = 3f;
+        public AudioClip AudioAttack;
+        public AudioClip AudioDie;
 
         private Vector3 _pointA;
         private Vector3 _pointB;
@@ -23,6 +26,7 @@ namespace Enemies
             Dead
         }
 
+        protected AudioSource _soundSource;
         protected Mode _mode = Mode.GoToA;
         protected Animator _animator;
         protected bool _isAttacking;
@@ -37,6 +41,8 @@ namespace Enemies
             _pointB = PointB.position;
 
             _rabitTransform = HeroRabit.LastRabit.transform;
+            _soundSource = gameObject.AddComponent<AudioSource>();
+            _soundSource.clip = AudioAttack;
         }
 
         // Update is called once per frame
@@ -120,6 +126,8 @@ namespace Enemies
             _animator.SetTrigger("die");
             ResetVelocityX();
             _mode = Mode.Dead;
+            
+            SoundManager.Instance.PlaySound(AudioDie, _soundSource);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -150,6 +158,8 @@ namespace Enemies
             _isAttacking = true;
             _animator.SetTrigger("attack_beat");
             HeroRabit.LastRabit.HitRabbit();
+     
+            SoundManager.Instance.PlaySound(AudioAttack, _soundSource);
         }
 
         protected void ResetVelocityX()
