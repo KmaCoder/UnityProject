@@ -52,3 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIClicked: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  MainMusic: {fileID: 8300000, guid: 57a5b2120c2d04fa9bcb5b2e99ee9361, type: 3}

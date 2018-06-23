@@ -69,17 +69,14 @@ public class HeroRabit : MonoBehaviour
 
     private void Update()
     {
-        if (SoundManager.Instance.SoundOn)
+        if (SoundManager.Instance.SoundOn && Time.timeScale > 0 && Math.Abs(_myBody.velocity.x) > 0.1f && _isGrounded)
         {
-            if (Math.Abs(_myBody.velocity.x) > 0.1f && _isGrounded)
-            {
-                if (!_runSourceSource.isPlaying)
-                    _runSourceSource.Play();
-            }
-            else
-            {
-                _runSourceSource.Pause();
-            }
+            if (!_runSourceSource.isPlaying)
+                _runSourceSource.Play();
+        }
+        else
+        {
+            _runSourceSource.Pause();
         }
 
         if (_canMove)

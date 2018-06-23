@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224910517742391830}
   - component: {fileID: 95768536431283200}
+  - component: {fileID: 114984870545162256}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -575,6 +576,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114984870545162256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535883622876130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff7b04f092542aea1f989955a9a8657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundOn: {fileID: 21300000, guid: 9d51c550af7f042448b0d69bc8f39958, type: 3}
+  SoundOff: {fileID: 21300000, guid: a96b3c306d8f54d59992608610fa8420, type: 3}
+  MusicOn: {fileID: 21300000, guid: f0cf33b7ce34e41798c3899a84839cbd, type: 3}
+  MusicOff: {fileID: 21300000, guid: 05d63ac62d0544d53a2005d0ceb838ea, type: 3}
 --- !u!222 &222291203152446116
 CanvasRenderer:
   m_ObjectHideFlags: 1

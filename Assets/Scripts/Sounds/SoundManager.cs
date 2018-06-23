@@ -7,9 +7,11 @@ namespace Sounds
         public static SoundManager Instance;
 
         public AudioClip UIClicked;
+        public AudioClip MainMusic;
 
         private AudioSource _soundSource;
         private AudioSource _uiSoundSource;
+        private AudioSource _musicSource;
 
         public bool SoundOn
         {
@@ -18,6 +20,21 @@ namespace Sounds
             {
                 _soundOn = value;
                 PlayerPrefs.SetInt("sound", value ? 1 : 0);
+                PlayerPrefs.Save();
+            }
+        }
+
+        public bool MusicOn
+        {
+            get { return _musicOn; }
+            set
+            {
+                _musicOn = value;
+                if(_musicOn)
+                    _musicSource.Play();
+                else
+                    _musicSource.Pause();
+                PlayerPrefs.SetInt("music", value ? 1 : 0);
                 PlayerPrefs.Save();
             }
         }
@@ -35,8 +52,13 @@ namespace Sounds
 
             Instance = this;
             _soundOn = PlayerPrefs.GetInt("sound", 1) == 1;
+            _musicOn = PlayerPrefs.GetInt("music", 1) == 1;
             _soundSource = gameObject.AddComponent<AudioSource>();
             _uiSoundSource = gameObject.AddComponent<AudioSource>();
+            _musicSource = gameObject.AddComponent<AudioSource>();
+            _musicSource.clip = MainMusic;
+            _musicSource.loop = true;
+            MusicOn = _musicOn;
         }
 
         public void PlaySound(AudioClip clip, AudioSource source)
